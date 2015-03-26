@@ -1,12 +1,13 @@
 /// <reference path="../types/fs-extra.d.ts" />
 /// <reference path="../types/es6-promise.d.ts" />
+/// <reference path="../types/FsPromise.d.ts" />
 
 import fs = require("fs-extra");
 import modulePromise = require("es6-promise");
 
 var Promise = modulePromise.Promise;
 
-class FsPromise {
+class FsPromise implements tsFsPromise.Main {
 
     public readJSON(path:string):Promise<any> {
         return this.getFsPromise("readJSON", [path]);
@@ -31,24 +32,32 @@ class FsPromise {
         return this.getFsPromise("mkdirp", [dir]);
     }
 
-    public outputFile(file: string, data: any):Promise<any> {
+    public outputFile(file: string, data: any):Promise<boolean> {
         return this.getFsPromise("outputFile", [file, data]);
     }
 
-    public outputJSON(file: string, data: any):Promise<any> {
+    public outputJSON(file: string, data: any):Promise<boolean> {
         return this.getFsPromise("outputJSON", [file, data]);
     }
 
-    public remove(dir: string):Promise<any> {
+    public remove(dir: string):Promise<boolean> {
         return this.getFsPromise("remove", [dir]);
     }
 
-    public writeJSON(file: string, object: any, options?: OpenOptions):Promise<any> {
+    public writeJSON(file: string, object: any, options?: tsFsPromise.OpenOptions):Promise<boolean> {
         return this.getFsPromise("writeJSON", [file, object, options]);
     }
 
-    public rename(oldPath: string, newPath: string):Promise<any> {
+    public rename(oldPath: string, newPath: string):Promise<boolean> {
         return this.getFsPromise("rename", [oldPath, newPath]);
+    }
+
+    public stat(path: string):Promise<tsFsPromise.Stats> {
+        return this.getFsPromise("stat", [path]);
+    }
+
+    public writeFile(filename: string, data: any, encoding?: string):Promise<boolean> {
+        return this.getFsPromise("writeFile", [filename, data, encoding]);
     }
 
     private getFsPromise(method:string, args:Array<any>):Promise<any> {
@@ -67,7 +76,4 @@ class FsPromise {
 
 }
 
-interface OpenOptions {
-    encoding?: string;
-    flag?: string;
-}
+export = FsPromise;
