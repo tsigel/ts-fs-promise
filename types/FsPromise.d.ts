@@ -64,8 +64,10 @@ declare module tsFsPromise {
         lchmodSync(path:string, mode:string):void;
         stat(path:string):Promise<tsFsPromise.Stats>;
         statSync(path: string): tsFsPromise.Stats;
-        readFile(path:string, encoding:string):Promise<any>;
+        readFile(path:string, encoding):Promise<any>;
+        readFileSync(filename: string, encoding):any;
         writeFile(filename:string, data:any, encoding?:string):Promise<boolean>;
+        writeFileSync(filename: string, data: any, encoding?: string):void;
         readdir(path:string):Promise<Array<string>>;
     }
 

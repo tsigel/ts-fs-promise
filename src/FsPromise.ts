@@ -149,12 +149,20 @@ class FsPromise implements tsFsPromise.Main {
         return fs.statSync(path);
     }
 
-    public readFile(path:string, encoding:string):Promise<any> {
+    public readFile(path:string, encoding):Promise<any> {
         return this.getFsPromise("readFile", [path, encoding]);
+    }
+
+    public readFileSync(filename: string, encoding):any {
+        return fs.readFileSync(filename, encoding);
     }
 
     public writeFile(filename:string, data:any, encoding?:string):Promise<boolean> {
         return this.getFsPromise("writeFile", [filename, data, encoding]);
+    }
+
+    public writeFileSync(filename: string, data: any, encoding?: string):void {
+        fs.writeFileSync(filename, data, encoding);
     }
 
     public readdir(path:string):Promise<Array<string>> {
