@@ -1,7 +1,7 @@
 # ts-fs-promise
 Promise fs extra
 
-Status: in worcking
+Status: in working
 
 # API 
 
