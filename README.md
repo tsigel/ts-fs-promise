@@ -1,9 +1,30 @@
-# ts-fs-promise
-Promise fs extra
+### Installation
 
-Status: in working
+```sh
+$ npm install ts-fs-promise
+```
 
-# API 
+## API
 
-  readJSON 
-  readFile
+##### readJSON
+##### readFile
+##### copy
+##### createFile
+##### mkdirs
+##### mkdirp
+##### outputFile
+##### outputJSON
+##### remove
+##### writeJSON
+##### rename
+##### stat
+##### writeFile
+##### readdir
+
+### Version
+0.0.5
+
+License
+----
+
+MIT

@@ -13,7 +13,7 @@
   ],
   "author": "Daniil Tsigelnitskiy",
   "homepage": "https://github.com/tsigel/ts-fs-promise",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "es6-promise": "^2.0.1",
     "fs-extra": "^0.16.5"
