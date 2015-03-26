@@ -60,6 +60,10 @@ class FsPromise implements tsFsPromise.Main {
         return this.getFsPromise("writeFile", [filename, data, encoding]);
     }
 
+    public readdir(path:string):Promise<Array<string>> {
+        return this.getFsPromise("readdir", [path]);
+    }
+
     private getFsPromise(method:string, args:Array<any>):Promise<any> {
         return new Promise((resolve, reject) => {
             var callback = function (err, data) {

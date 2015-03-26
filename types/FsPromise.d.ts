@@ -42,6 +42,7 @@ declare module tsFsPromise {
         rename(oldPath: string, newPath: string):Promise<boolean>;
         stat(path: string):Promise<tsFsPromise.Stats>;
         writeFile(filename: string, data: any, encoding?: string):Promise<boolean>;
+        readdir(path:string):Promise<Array<string>>
     }
 
 }
