@@ -64,9 +64,9 @@ class FsPromise implements tsFsPromise.Main {
         return new Promise((resolve, reject) => {
             var callback = function (err, data) {
                 if (err) {
-                    resolve(typeof data == "undefined" ? true : data);
-                } else {
                     reject(err);
+                } else {
+                    resolve(typeof data == "undefined" ? true : data);
                 }
             };
             args.push(callback);
