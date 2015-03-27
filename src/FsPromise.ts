@@ -169,6 +169,10 @@ class FsPromise implements tsFsPromise.Main {
         return this.getFsPromise("readdir", [path]);
     }
 
+    public readdirSync(path:string):Array<string> {
+        return fs.readdirSync(path);
+    }
+
     private getFsPromise(method:string, args:Array<any>):Promise<any> {
         return new Promise((resolve, reject) => {
             var callback = function (err, data) {

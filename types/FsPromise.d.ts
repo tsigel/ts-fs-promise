@@ -1,3 +1,5 @@
+/// <reference path="./es6-promise.d.ts" />
+
 declare module tsFsPromise {
 
     interface OpenOptions {
@@ -69,6 +71,7 @@ declare module tsFsPromise {
         writeFile(filename:string, data:any, encoding?:string):Promise<boolean>;
         writeFileSync(filename: string, data: any, encoding?: string):void;
         readdir(path:string):Promise<Array<string>>;
+        readdirSync(path:string):Array<string>;
     }
 
 }
