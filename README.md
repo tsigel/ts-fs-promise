@@ -53,6 +53,7 @@
 * writeFileSync(filename: string, data: any, encoding?: string):void;
 * readdir(path:string):Promise<Array<string\>\>;
 * readdirSync(path:string):Array<string\>;
+
 ------------
 
 ### Example 
