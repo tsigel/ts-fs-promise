@@ -53,6 +53,16 @@
 * writeFileSync(filename: string, data: any, encoding?: string):void;
 * readdir(path:string):Promise<Array<string\>\>;
 * readdirSync(path:string):Array<string\>;
+------------
+
+### Example 
+
+     <reference path="./node_modules/ts-fs-promise/src/FsPromise.d.ts">
+     import fs = require('ts-fs-promise');
+     
+     fs.readFile('some.txt', 'utf8').then((fileText:string) => {
+        // do something
+     });
 
 -------------
 ### Version 0.0.12
