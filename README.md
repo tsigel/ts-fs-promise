@@ -54,7 +54,7 @@
 * readdirSync(path:string):Array<string\>;
 
 -------------
-### Version 0.0.11
+### Version 0.0.12
 -------------
 License
 ----
