@@ -1,6 +1,5 @@
-/// <reference path="../types/fs-extra.d.ts" />
-/// <reference path="../types/es6-promise.d.ts" />
-/// <reference path="../types/FsPromise.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="./FsPromise.d.ts" />
 
 import fs = require("fs-extra");
 import modulePromise = require("es6-promise");
