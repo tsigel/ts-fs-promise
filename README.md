@@ -8,8 +8,8 @@
 
     <reference path="PATH-TO-ROOT/node_modules/ts-fs-promise/src/FsPromise.d.ts">
     
-### Configure    
-
+### Configure (into ts-fs-promise root directory)   
+    
     npm run init
     
 -------------
