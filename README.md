@@ -8,10 +8,6 @@
 
     <reference path="PATH-TO-ROOT/node_modules/ts-fs-promise/src/FsPromise.d.ts">
     
-### Configure (into ts-fs-promise root directory)   
-    
-    npm run init
-    
 -------------
 
 ## API
@@ -70,7 +66,7 @@
      });
 
 -------------
-### Version 1.0.0
+### Version 1.0.1
 -------------
 License
 ----
