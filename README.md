@@ -1,5 +1,6 @@
 ### Installation
-   npm install ts-fs-promise
+
+    npm install ts-fs-promise --save
    
 -------------
 
