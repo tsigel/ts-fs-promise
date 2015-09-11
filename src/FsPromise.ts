@@ -17,7 +17,7 @@ class FsPromise implements tsFsPromise.Main {
     }
 
     public createFile(file:string):Promise<boolean> {
-        return this.getFsPromise("createFile", [])
+        return this.getFsPromise("createFile", [file])
     }
 
     public createFileSync(file:string):void {
