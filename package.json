@@ -1,6 +1,6 @@
 {
   "name": "ts-fs-promise",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "scripts": {
     "init": "npm run installJson && npm run compile",
     "installJson": "npm install && tsd install",

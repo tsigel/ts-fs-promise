@@ -65,8 +65,14 @@
         // do something
      });
 
+------------
+### Fixes
+
+###### version 1.0.2 fix copy
+
+
 -------------
-### Version 1.0.1
+### Version 1.0.2
 -------------
 License
 ----
