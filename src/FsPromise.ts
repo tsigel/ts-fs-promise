@@ -28,16 +28,8 @@ class FsPromise implements tsFsPromise.Main {
         return this.getFsPromise("mkdirs", [dir]);
     }
 
-    public mkdirp(dir:string):Promise<boolean> {
-        return this.getFsPromise("mkdirp", [dir]);
-    }
-
     public mkdirsSync(dir:string):void {
         fs.mkdirsSync(dir);
-    }
-
-    public mkdirpSync(dir:string):void {
-        fs.mkdirpSync(dir);
     }
 
     public outputFile(file:string, data:any):Promise<boolean> {
@@ -178,7 +170,7 @@ class FsPromise implements tsFsPromise.Main {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(typeof data == "undefined" ? true : data);
+                    resolve(data || true);
                 }
             };
             args.push(callback);

@@ -4,13 +4,17 @@ import fsPromise = require('../index');
 import fs = require('fs');
 import expect = require('expect.js');
 
+var getPath = function (path) {
+    return ('./test/' + path.replace('./', '')).replace(/\/\//g, '/');
+};
+
 try {
-    fs.mkdirSync('./test/test');
+    fs.mkdirSync(getPath('test'));
 } catch (e) {
     console.log(e);
 }
 try {
-    fs.writeFileSync('test/test/test.txt', 'test');
+    fs.writeFileSync(getPath('test/test.text'), 'test');
 } catch (e) {
     console.log(e);
 }
@@ -20,29 +24,40 @@ describe('ts-fs-promise', () => {
     it('copySync', () => {
 
         var ok;
-        fsPromise.copySync('./test/test/test.txt', './test/test.txt');
-        ok = (fs.readFileSync('./test/test.txt', 'utf8') == 'test');
+        fsPromise.copySync(getPath('test/test.text'), getPath('test.text'));
+        ok = (fs.readFileSync(getPath('test.text'), 'utf8') == 'test');
         expect(ok).to.be(true);
-        fs.unlinkSync('./test/test.txt');
+        fs.unlinkSync(getPath('test.text'));
+
+    });
+
+    it('mkdirsSync', () => {
+
+        var ok;
+        fsPromise.mkdirsSync(getPath('some'));
+        ok = fs.existsSync(getPath('some'));
+        expect(ok).to.be(true);
+        fs.rmdir(getPath('some'));
+
     });
 
     it('createFileSync', () => {
 
         var ok;
-        fsPromise.createFileSync('./test/test.txt');
-        ok = (fs.existsSync('./test/test/test.txt'));
+        fsPromise.createFileSync(getPath('test.text'));
+        ok = fs.existsSync(getPath('test.text'));
         expect(ok).to.be(true);
-        fs.unlinkSync('./test/test.txt');
+        fs.unlinkSync(getPath('test.text'));
 
     });
 
     it('copy', (done) => {
 
         var ok = false;
-        fsPromise.copy('./test/test/test.txt', './test/test.txt').then((status:boolean) => {
-            ok = (status && fs.readFileSync('./test/test.txt', 'utf8') == 'test');
+        fsPromise.copy(getPath('test/test.text'), getPath('test.text')).then((status:boolean) => {
+            ok = (status && fs.readFileSync(getPath('test.text'), 'utf8') == 'test');
             expect(ok).to.be(true);
-            fs.unlinkSync('./test/test.txt');
+            fs.unlinkSync(getPath('test.text'));
             done();
         });
 
@@ -51,10 +66,22 @@ describe('ts-fs-promise', () => {
     it('createFile', (done) => {
 
         var ok = false;
-        fsPromise.createFile('./test/test.txt').then((status:boolean) => {
-            ok = (status && fs.existsSync('./test/test.txt'));
+        fsPromise.createFile(getPath('test.text')).then((status:boolean) => {
+            ok = (status && fs.existsSync(getPath('test.text')));
             expect(ok).to.be(true);
-            fs.unlinkSync('./test/test.txt');
+            fs.unlinkSync(getPath('test.text'));
+            done();
+        });
+
+    });
+
+    it('mkdirs', (done) => {
+
+        var ok = false;
+        fsPromise.mkdirs(getPath('some')).then((status:boolean) => {
+            ok = (status && fs.existsSync(getPath('some')));
+            expect(ok).to.be(true);
+            fs.rmdir(getPath('some'));
             done();
         });
 
