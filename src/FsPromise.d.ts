@@ -36,9 +36,7 @@ declare module tsFsPromise {
         createFile(file:string):Promise<boolean>;
         createFileSync(file:string):void;
         mkdirs(dir:string):Promise<boolean>;
-        mkdirp(dir:string):Promise<boolean>;
         mkdirsSync(dir:string):void;
-        mkdirpSync(dir:string):void;
         outputFile(file:string, data:any):Promise<boolean>;
         outputFileSync(file:string, data:any):void;
         outputJSON(file:string, data:any):Promise<boolean>;
