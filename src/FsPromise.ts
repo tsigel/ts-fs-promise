@@ -9,7 +9,7 @@ var Promise = modulePromise.Promise;
 class FsPromise implements tsFsPromise.Main {
 
     public copy(src:string, dest:string, filter?:(src:string) => boolean):Promise<boolean> {
-        return this.getFsPromise("copy", [src, dest, filter]);
+        return this.getFsPromise("copy", [src, dest, filter].filter((arg) => !!arg));
     }
 
     public copySync(src:string, dest:string, filter?:(src:string) => boolean):void {

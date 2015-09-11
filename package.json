@@ -4,7 +4,9 @@
   "scripts": {
     "init": "npm run installJson && npm run compile",
     "installJson": "npm install && tsd install",
-    "compile": "tsc index.ts --m commonjs"
+    "compile": "tsc index.ts --m commonjs",
+    "compileTest": "tsc test/TsFsPromise.test.ts --m commonjs",
+    "test": "npm run compileTest && mocha"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,8 @@
     "fs-extra": "^0.16.5"
   },
   "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.2",
     "tsd": "^0.6.4",
     "typescript": "^1.5.3"
   }
