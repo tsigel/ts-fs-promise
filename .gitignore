@@ -5,3 +5,4 @@ node_modules
 /**/**.js
 typings
 test/test
+ts-fs-promise.iml
