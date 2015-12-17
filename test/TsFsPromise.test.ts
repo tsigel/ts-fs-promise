@@ -4,8 +4,8 @@ import fsPromise = require('../index');
 import fs = require('fs');
 import expect = require('expect.js');
 
-var getPath = function (path) {
-    return ('./test/' + path.replace('./', '')).replace(/\/\//g, '/');
+var getPath = function (path?:string) {
+    return ('./test/' + (path || "").replace('./', '')).replace(/\/\//g, '/');
 };
 
 var getTestFilePath = function () {
@@ -72,6 +72,14 @@ describe('ts-fs-promise', () => {
         fs.unlinkSync(getPath("test.txt"));
     });
 
+    it("readDirSync", () => {
+
+        var files = fsPromise.readdirSync(getPath());
+        var ok = files.indexOf("test") != -1 && files.indexOf("TsFsPromise.test.ts") != -1;
+        expect(ok).to.be(true);
+
+    });
+
     it('copy', (done) => {
 
         var ok = false;
@@ -125,6 +133,17 @@ describe('ts-fs-promise', () => {
         check(fsPromise.writeFile(getPath('test.txt'), 'test')).then(() => {
             expect(fs.readFileSync(getPath('test.txt'), 'utf8')).to.be('test');
             fs.unlinkSync(getPath('test.txt'));
+            done();
+        });
+
+    });
+
+    it("readDir", (done) => {
+
+        var ok = false;
+        check(fsPromise.readdir(getPath())).then((files:Array<string>) => {
+            ok = files.indexOf("test") != -1 && files.indexOf("TsFsPromise.test.ts") != -1;
+            expect(ok).to.be(true);
             done();
         });
 
